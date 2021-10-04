@@ -1,5 +1,6 @@
 $primaryBtn : rgb(52, 53, 77);
-$backgroundColor : rgb(25, 23, 26);
+$backgroundColor : rgb(59, 59, 59);
+$headerColor: rgb(95, 60, 60);
 * {
     margin:0;
     padding: 0;
@@ -11,10 +12,36 @@ $backgroundColor : rgb(25, 23, 26);
 }
 
 header {
-
-    @include flexCenter();
-    background-color: rgb(213, 213, 214);
+    .top_nav{
+        overflow: visible;
+        width: 100%;
+        padding-bottom: 0px;
+        nav {
+            padding-top: 5px;
+            padding-bottom: 8px;
+            width: 100%;
+            div{
+                @include flexCenter();
+                width: 100%;
+                img{
+                    width: 100%;
+                    height: 40vh;
+                }
+                .icon {
+                    display: block;
+                    font-size: 52px;
+                    color: black;
+                    text-decoration: none;
+                    text-align: center;
+                    line-height: 40px;
+                    min-width: 40px;
+                    min-height: 40px;
+                }
+            }
+        }
+    }
     
+
 }
 body{
     width: 100%;
@@ -22,6 +49,48 @@ body{
     .section1{
         width: 100%;
         height: 60vh;
+        .main_text{
+            @include flexCenter();
+            font-size: 2.5em;
+            
+        }
+        .main_text_mid{
+            @extend .main_text;
+            font-size: 4em;
+        }
+        ul{
+            width: 100%;
+            @include flexCenter();
+            margin-top: 3vh;
+            li {
+                float: left;
+                @include flexCenter();
+                .btn_one{
+                    font-size: 16px;
+                    text-align: center;
+                    background-color: $primaryBtn;
+                    display: inline-block;
+                    padding: 16px 32px;
+                    color: white;
+                    border: none;
+                    text-decoration: none;
+                    cursor: pointer;
+                    margin: 4px 2px;
+
+                }
+                .btn_one_readmore{
+                    @extend .btn_one;
+                    background-color: white;
+                    color: black;
+                    border: 2px solid $primaryBtn;
+                    padding: 16px 38px;
+                }
+                .btn_one_steam {
+                    @extend .btn_one;
+                    border: 2px solid $primaryBtn;
+                }
+            }
+        }
     }
     .section2{
         width: 100%;
@@ -44,5 +113,54 @@ body{
         background-color: $backgroundColor;
         
     }
-    
+    .section4{
+        width: 100%;
+        height: 725px;
+        background: url("/img/witcher3_en_wallpaper_7_1920x1080.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        ul{
+            width: 100%;
+            li {
+                width: 90%;
+                @include flexCenter();
+                .block_one{
+                    width: 30%;
+                    height: 450px;
+                    background-color: black;
+                    float: left;
+                    margin-left: 3%;
+                    margin-top: 60vh;
+                    opacity: 0.8;
+                    .image_block{
+                        opacity: 1.0;
+                        width: 100%;
+                        height: 200px;
+                        background-color: white;
+                        img{
+                            width: 100%;
+                            height: 200px;
+                        }
+                    .text_block{
+                        color: white;
+                        font-size: 4em;
+                        float: left;
+                        margin-left: 5%;
+                        margin-right: 5%;
+                        margin-top: 300px;
+                    }
+                    }
+                }
+                .block_two{
+                    @extend .block_one;
+                    margin-left: 8%;
+                }
+            }
+        }
+    }
+    .section5 {
+        width: 100%;
+        height: 500px;
+        background-color: $primaryBtn;
+    }
 }
