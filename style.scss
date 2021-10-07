@@ -1,9 +1,13 @@
 $primaryBtn : rgb(52, 53, 77);
 $backgroundColor : rgb(59, 59, 59);
 $headerColor: rgb(95, 60, 60);
+$overlayColor: rgba(9, 14, 19, 0.85);
+$text_burgerColor: rgb(255, 255, 255);
 * {
     margin:0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 @mixin flexCenter {
     display: flex;
@@ -11,44 +15,195 @@ $headerColor: rgb(95, 60, 60);
     align-items: center;
 }
 
-header {
-    .top_nav{
-        overflow: visible;
-        width: 100%;
-        padding-bottom: 0px;
-        nav {
-            padding-top: 5px;
-            padding-bottom: 8px;
-            width: 100%;
-            div{
-                @include flexCenter();
-                width: 100%;
-                img{
-                    width: 100%;
-                    height: 40vh;
-                }
-                .icon {
-                    display: block;
-                    font-size: 52px;
-                    color: black;
-                    text-decoration: none;
-                    text-align: center;
-                    line-height: 40px;
-                    min-width: 40px;
-                    min-height: 40px;
-                }
-            }
-        }
-    }
-    
 
-}
 body{
     width: 100%;
     height: 3000px;
+
+/*  Menu  */
+
+#header{
+    align-items: center;
+    background: $headerColor;
+    cursor: default;
+    height: 6em;
+    left: 0;
+    top:0;
+    line-height: 6em;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+    box-shadow: 0px 7px 28px -6px rgba(0,0,0,0.75);
+    text-align: center;
+
+    .logo{
+        font-size: 3em;
+        letter-spacing: 3px;
+        text-decoration: none;
+        display: inline-block;
+        color: $text_burgerColor;
+        font-family: 'Noto Sans', sans-serif;
+    }
+    nav {
+        top: 0;
+        height: inherit;
+        line-height: inherit;
+        position: absolute;
+        div {
+            left: 20px;
+            position: relative;
+            
+        }
+    }
+
+
+}
+
+   @media screen and (max-width: 400px) {
+
+     #header .logo{
+         font-size: 2em;
+         letter-spacing: 2px;
+     }
+
+
+ }
+ .menu-wrap {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    z-index: 10001;
+    .toggler {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10002;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+      }
+      .toggler:checked + .hamburger{
+        div{
+            transform: rotate(135deg);
+            &:before,
+            &:after {
+                top: 0;
+                transform: rotate(90deg);
+            }
+        }
+      }
+      .toggler:checked:hover + .hamburger {
+          div{
+            transform: rotate(225deg);
+          }
+      }
+      .toggler:checked ~ .menu {
+        visibility: visible;
+        div {
+            transform: scale(1);
+            transition-duration: 0.7s;
+            div {
+                opacity: 1;
+                transition:  opacity 0.4s ease 0.4s;
+              }
+          }
+      }
+      .hamburger {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10001;
+        width: 60px;
+        height: 60px;
+        padding: 1rem;
+        background: $headerColor;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div {
+            position: relative;
+            flex: none;
+            width: 100%;
+            height: 3px;
+            background: $text_burgerColor;
+            @include flexCenter();
+            transition: all 0.4s ease;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                z-index: 10001;
+                top: -10px;
+                width: 100%;
+                height: 3px;
+                background: inherit;
+            }
+            &:after {
+                top: 10px;
+            }
+          }
+    
+      }
+      .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > div {
+            background: $overlayColor;
+            border-radius: 50%;
+            width: 200vw;
+            height: 200vw;
+            display: flex;
+            flex: none;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0);
+            transition: all 0.4s ease;
+            > div {
+                text-align: center;
+                max-width: 90vw;
+                max-height: 100vh;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                > ul > li {
+                    list-style: none;
+                    color: #fff;
+                    font-size: 2rem;
+                    padding: 1rem;
+                    > a {
+                        color: inherit;
+                        text-decoration: none;
+                        transition: color 0.4s ease;
+                        letter-spacing: 3px;
+                      }
+                  }
+              }
+          }
+      }
+  }
+/*  Sections begins*/
     .section1{
         width: 100%;
-        height: 60vh;
+        height: 100vh;
+        padding-top: 150px;
+        .img_logo {
+            width: 100%;
+            @include flexCenter();
+            height: 35vh;
+            img{
+                width: auto;
+                height: 35vh;
+                @include flexCenter();
+            }
+        }
         .main_text{
             @include flexCenter();
             font-size: 2.5em;
@@ -109,8 +264,8 @@ body{
     }
     .section3{
         width: 100%;
-        height: 60px;
-        background-color: $backgroundColor;
+        height: 500px;
+        background-color: #fff;
         
     }
     .section4{
@@ -125,13 +280,12 @@ body{
                 width: 90%;
                 @include flexCenter();
                 .block_one{
-                    width: 30%;
+                    width: 500px;
                     height: 450px;
-                    background-color: black;
+                    background-color: rgba(0, 0, 3,0.3);
                     float: left;
                     margin-left: 3%;
                     margin-top: 60vh;
-                    opacity: 0.8;
                     .image_block{
                         opacity: 1.0;
                         width: 100%;
