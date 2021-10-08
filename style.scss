@@ -1,6 +1,6 @@
-$primaryBtn : rgb(52, 53, 77);
+$primaryBtn : rgb(25, 26, 43);
 $backgroundColor : rgb(59, 59, 59);
-$headerColor: rgb(95, 60, 60);
+$headerColor: rgb(29, 29, 29);
 $overlayColor: rgba(9, 14, 19, 0.85);
 $text_burgerColor: rgb(255, 255, 255);
 * {
@@ -194,6 +194,9 @@ body{
         width: 100%;
         height: 100vh;
         padding-top: 150px;
+        @media screen and (max-width:"864px") {
+            padding-top: 100px;
+        }
         .img_logo {
             width: 100%;
             @include flexCenter();
@@ -202,16 +205,32 @@ body{
                 width: auto;
                 height: 35vh;
                 @include flexCenter();
+                @media screen and (max-width:"864px") {
+                    height: 30vh;
+                }
+                @media screen and (max-width:"400px") {
+                    height: 23vh;
+                }
             }
         }
         .main_text{
             @include flexCenter();
             font-size: 2.5em;
+            @media screen and (max-width:"864px") {
+                font-size: 1.5em;
+
+            }
             
         }
         .main_text_mid{
             @extend .main_text;
             font-size: 4em;
+            @media screen and (max-width:"864px") {
+                font-size: 3em;
+            }
+            @media screen and (max-width:"400px") {
+                margin: 5px;
+            }
         }
         ul{
             width: 100%;
@@ -252,13 +271,22 @@ body{
         background-color:$backgroundColor;
         .youtube-video{
             @include flexCenter();
-    
-            height: 20%;
             width: 50%;
             margin-left: 25%;
             iframe {
                 width: 100%;
                 height: 60vh;
+            }
+        }
+        @media screen and (max-width:"1024px"){
+            .youtube-video{
+                width: 100%;
+                height: 100%;
+                margin-left: 0%;
+                iframe {
+                    width: 100%;
+                    height: 60vh;
+                }
             }
         }
     }
@@ -296,12 +324,19 @@ body{
                             height: 200px;
                         }
                     .text_block{
-                        color: white;
-                        font-size: 4em;
-                        float: left;
-                        margin-left: 5%;
-                        margin-right: 5%;
-                        margin-top: 300px;
+                        width: 90%;
+                        @include flexCenter();
+                        height: 300px;
+                        p {
+                            @include flexCenter();
+                            color: #fff;
+                            font-size: 30px;
+                        }
+                        h1 {
+                            @include flexCenter();
+                            color: #fff;
+                            font-size: 30px;
+                        }
                     }
                     }
                 }
