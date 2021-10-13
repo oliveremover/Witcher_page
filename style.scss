@@ -250,6 +250,7 @@ body{
                     text-decoration: none;
                     cursor: pointer;
                     margin: 4px 2px;
+                    border-radius: 2px;
 
                 }
                 .btn_one_readmore{
@@ -263,6 +264,9 @@ body{
                     @extend .btn_one;
                     border: 2px solid $primaryBtn;
                 }
+                @media screen and (max-width:"648px") {
+                    width: 100%;  
+            }
             }
         }
     }
@@ -292,64 +296,203 @@ body{
     }
     .section3{
         width: 100%;
-        height: 500px;
-        background-color: #fff;
+        height: 55vh;
+        background-color: rgb(0, 0, 0);
+        @media screen and (max-width:"640px") {
+            height: 35vh;
+        }
+
         
     }
     .section4{
+        /* Welcome to the new better world */
         width: 100%;
-        height: 725px;
-        background: url("/img/witcher3_en_wallpaper_7_1920x1080.jpg");
+        height: 60vh;
+        background: url("/img/thewitcher_en_1_1920x1080.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-        ul{
+        opacity: 0.92;
+        background-position: center;
+        @media screen and (max-width:"1280px") {
+            height: 80vh;
+        }
+        .center_text{
             width: 100%;
-            li {
-                width: 90%;
+            text-align: center;
+            h1{
                 @include flexCenter();
-                .block_one{
-                    width: 500px;
-                    height: 450px;
-                    background-color: rgba(0, 0, 3,0.3);
-                    float: left;
-                    margin-left: 3%;
-                    margin-top: 60vh;
-                    .image_block{
-                        opacity: 1.0;
-                        width: 100%;
-                        height: 200px;
-                        background-color: white;
-                        img{
-                            width: 100%;
-                            height: 200px;
-                        }
-                    .text_block{
-                        width: 90%;
-                        @include flexCenter();
-                        height: 300px;
-                        p {
-                            @include flexCenter();
-                            color: #fff;
-                            font-size: 30px;
-                        }
-                        h1 {
-                            @include flexCenter();
-                            color: #fff;
-                            font-size: 30px;
-                        }
-                    }
-                    }
+                color: #fff;
+                padding-top: 150px;
+                padding-bottom: 20px;
+                font-size: 4em;
+                font-weight: 400;
+                text-transform: uppercase;
+                @media screen and (max-width:"648px") {
+                    padding: 10px 15px;
+                    padding-top: 150px;
+                    font-size: 2em;
                 }
-                .block_two{
-                    @extend .block_one;
-                    margin-left: 8%;
+            }
+            p{
+                @include flexCenter();
+                margin: 10px 400px;
+                color: $text_burgerColor;
+                font-size: 1.5em;
+                @media screen and (max-width:"648px") {
+                    margin: 5px;
+                    font-size: 1.25em;
+                    margin-bottom: 20px;
+                }
+            }
+            a {
+                @include flexCenter();
+                button{
+                    font-size: 1.25em;
+                    text-align: center;
+                    background-color: $primaryBtn;
+                    display: inline-block;
+                    padding: 16px 48px;
+                    color: white;
+                    border: none;
+                    text-decoration: none;
+                    cursor: pointer;
+                    margin: 8px 2px;
+                    border-radius: 16px;
                 }
             }
         }
     }
     .section5 {
+        /* Explore previous games */
         width: 100%;
-        height: 500px;
+        height: 100vh;
         background-color: $primaryBtn;
+        @include flexCenter();
+        .st-box {
+            float:left;
+            width:500px;
+            height:500px;
+            background-color: $primaryBtn;
+            border:solid black;
+            @media screen and (max-width:"1600px") {
+                width: 40vw;
+                margin: 0;
+                margin-left: 5vw;
+            }
+            @media screen and (max-width:"1024px") {
+                width: 100vw;
+                margin: 0;
+                margin-top: 820px;
+                height: 900px;
+            }
+            @media screen and (max-width:"640px") {
+                width: 100vw;
+                margin: 0;
+                margin-top: 1000px;
+                height: 600px;
+            }
+            img {
+                width: 100%;
+                height: 50%;
+                background-size: contain;
+            }
+            div {
+                margin-top:10px ;
+                h1{
+                    @include flexCenter();
+                    color: #fff;
+                    font-size: 20px;
+                }
+                p {
+                    @include flexCenter();
+                    margin: 10px;
+                    color: #fff;
+                    text-align: center;
+                }
+            }
+        }
+        .nd-box {
+            float:left;
+            width:500px;
+            height:500px;
+            background-color:$primaryBtn; 
+            border:solid black;
+            margin-left:20px;
+            margin-right: 20px;
+            @media screen and (max-width:"1600px") {
+                width: 40vw;
+                margin: 0;
+                margin-left: 10vw;
+            }
+            @media screen and (max-width:"1024px") {
+                width: 100vw;
+                margin: 0;
+            }
+            @media screen and (max-width:"640px") {
+                width: 100vw;
+                margin: 0;
+                
+            }
+            img {
+                width: 100%;
+                height: 50%;
+                background-size: contain;
+            }
+            div {
+                margin-top:10px ;
+                h1{
+                    @include flexCenter();
+                    color: #fff;
+                    font-size: 20px;
+                }
+                p {
+                    @include flexCenter();
+                    margin: 10px;
+                    color: #fff;
+                    text-align: center;
+                }
+            }
+        }
+        .rd-box {
+            float:right;
+            width:500px;
+            height:500px;
+            background-color:$primaryBtn;
+            border:solid black;
+            @media screen and (max-width:"1600px") {
+                width: 40vw;
+                margin: 0;
+                margin-right: 20vw;
+            }
+            @media screen and (max-width:"1024px") {
+                width: 100vw;
+                margin: 0;
+                
+            }
+            @media screen and (max-width:"640px") {
+                width: 100vw;
+                margin: 0;
+            }
+            img {
+                width: 100%;
+                height: 50%;
+                background-size: contain;
+            }
+            div {
+                margin-top:10px ;
+                h1{
+                    @include flexCenter();
+                    color: #fff;
+                    font-size: 20px;
+                }
+                p {
+                    @include flexCenter();
+                    margin: 10px;
+                    color: #fff;
+                    text-align: center;
+                }
+            }
+        }
+        
     }
 }
